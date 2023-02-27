@@ -8,7 +8,6 @@ from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
 from urllib.error import HTTPError
 
-
 class TestGithubOrgClient(unittest.TestCase):
     """ TESTCASE """
     """ inputs to test the functionality """
