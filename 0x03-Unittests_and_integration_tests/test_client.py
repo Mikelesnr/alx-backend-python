@@ -3,7 +3,7 @@
     Parameterize, Integration test: fixtures, Integration tests """
 import unittest
 from unittest.mock import patch, PropertyMock, Mock
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
 from urllib.error import HTTPError
@@ -15,7 +15,7 @@ class TestGithubOrgClient(unittest.TestCase):
     @parameterized.expand([
         ("google"),
         ("abc"),
-        ])
+    ])
     @patch("client.get_json", return_value={"payload": True})
     def test_org(self, org_name, mock_get):
         """ test that GithubOrgClient.org returns the correct value """
@@ -54,7 +54,7 @@ class TestGithubOrgClient(unittest.TestCase):
     @parameterized.expand([
         ({"license": {"key": "my_license"}}, "my_license", True),
         ({"license": {"key": "other_license"}}, "my_license", False),
-        ])
+    ])
     def test_has_license(self, repo, license_key, expected_return):
         """ to unit-test GithubOrgClient.has_license """
         test_client = GithubOrgClient("holberton")
