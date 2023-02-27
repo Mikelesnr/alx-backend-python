@@ -61,7 +61,6 @@ class TestGithubOrgClient(unittest.TestCase):
         test_return = test_client.has_license(repo, license_key)
         self.assertEqual(expected_return, test_return)
 
-
 @parameterized_class(
     ("org_payload", "repos_payload", "expected_repos", "apache2_repos"),
     TEST_PAYLOAD
@@ -89,3 +88,4 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         """ method to test the public_repos with the argument license """
         test_class = GithubOrgClient("holberton")
         assert True
+        
