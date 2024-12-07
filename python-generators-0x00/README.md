@@ -1,4 +1,4 @@
-## This directory contains seed.py
+## This directory contains seed.py,0-stream_users.py
 
 ## Task
 
@@ -19,3 +19,5 @@
 > def create_table(connection):- creates a table user_data if it does not exists with the required fields
 > def insert_data(connection, data):- inserts data in the database if it does not exist
 > def get_rows(connection):- a generator function that returns the rows one by one
+
+## 0-stream_users.py
