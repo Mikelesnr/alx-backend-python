@@ -2,10 +2,14 @@
 import mysql.connector
 import decimal
 
+"""
+Please replace host,user,password with your server settings in DB_CONFIG
+"""
+
 DB_CONFIG = {
     'host': 'localhost',
-    'user': 'mikelesnr',
-    'password': 'Michael2331#',
+    'user': 'user_name',
+    'password': 'mysql_password',
     'database': 'ALX_prodev'
 }
 
