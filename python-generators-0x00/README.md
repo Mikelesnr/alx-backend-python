@@ -18,6 +18,36 @@
 > def connect_to_prodev() connects the the ALX_prodev database in MYSQL
 > def create_table(connection):- creates a table user_data if it does not exists with the required fields
 > def insert_data(connection, data):- inserts data in the database if it does not exist
-> def get_rows(connection):- a generator function that returns the rows one by one
 
 ## 0-stream_users.py
+
+## Task
+
+> Objective: create a generator that streams rows from an SQL database one by one.
+
+-Instructions:
+
+> In 0-stream_users.py write a function that uses a generator to fetch rows one by one from the user_data table. You must use the Yield python generator
+
+- Prototype: def stream_users()
+
+> Your function should have no more than 1 loop
+
+## 1-batch_processing.py
+
+## Task
+
+> objective: Create a generator to fetch and process data in batches from the users database
+
+- Instructions:
+
+> Write a function stream_users_in_batches(batch_size) that fetches rows in batches
+
+> Write a function batch_processing() that processes each batch to filter users over the age of25`
+
+> You must use no more than 3 loops in your code. Your script must use the yield generator
+
+- Prototypes:
+
+> def stream_users_in_batches(batch_size)
+> def batch_processing(batch_size)
