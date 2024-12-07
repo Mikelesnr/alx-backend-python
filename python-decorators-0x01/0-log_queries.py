@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 import sqlite3
 import functools
 import logging
