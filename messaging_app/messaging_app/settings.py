@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
-AUTH_USER_MODEL = 'messaging_app.CustomUser'
+AUTH_USER_MODEL = 'chats.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
