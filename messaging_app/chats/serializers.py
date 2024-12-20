@@ -8,6 +8,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
     sender = CustomUserSerializer(read_only=True)
+    message_body = serializers.CharField()
 
     class Meta:
         model = Message
