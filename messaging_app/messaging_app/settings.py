@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'messaging_app',
+    'chats_app',
     'rest_framework',
-    'chats',
 ]
+
+AUTH_USER_MODEL = 'messaging_app.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
