@@ -1,7 +1,9 @@
 from rest_framework import viewsets, status, filters
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from .models import Conversation, Message, CustomUser
 from .serializers import ConversationSerializer, MessageSerializer
+from .permissions import IsParticipant, IsSender
 
 # Create your views here.
 
@@ -10,6 +12,7 @@ class ConversationViewSet(viewsets.ModelViewSet):
     serializer_class = ConversationSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['participants__username']
+    permission_classes = [IsAuthenticated, IsParticipant]
 
     def create(self, request, *args, **kwargs):
         participants_ids = request.data.get('participants', [])
@@ -29,6 +32,7 @@ class MessageViewSet(viewsets.ModelViewSet):
     serializer_class = MessageSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['message_body', 'sender__username']
+    permission_classes = [IsAuthenticated, IsSender]
 
     def create(self, request, *args, **kwargs):
         conversation_id = request.data.get('conversation')
