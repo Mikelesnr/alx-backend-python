@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'messaging_app',
     'chats',
     'rest_framework',
+    'drf_yasg'
 ]
 
 AUTH_USER_MODEL = 'chats.CustomUser'

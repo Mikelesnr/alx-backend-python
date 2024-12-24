@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from .models import Conversation, Message, CustomUser
 from .serializers import ConversationSerializer, MessageSerializer
 
-
 # Create your views here.
+
 class ConversationViewSet(viewsets.ModelViewSet):
     queryset = Conversation.objects.all()
     serializer_class = ConversationSerializer
@@ -13,7 +13,7 @@ class ConversationViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         participants_ids = request.data.get('participants', [])
-        participants = CustomUser.objects.filter(id__in=participants_ids)
+        participants = CustomUser.objects.filter(user_id__in=participants_ids)
         if not participants.exists():
             return Response({'error': 'Participants not found'}, status=status.HTTP_400_BAD_REQUEST)
         
@@ -36,8 +36,8 @@ class MessageViewSet(viewsets.ModelViewSet):
         message_body = request.data.get('message_body')
 
         try:
-            conversation = Conversation.objects.get(id=conversation_id)
-            sender = CustomUser.objects.get(id=sender_id)
+            conversation = Conversation.objects.get(conversation_id=conversation_id)
+            sender = CustomUser.objects.get(user_id=sender_id)
         except (Conversation.DoesNotExist, CustomUser.DoesNotExist):
             return Response({'error': 'Conversation or sender not found'}, status=status.HTTP_400_BAD_REQUEST)
         
