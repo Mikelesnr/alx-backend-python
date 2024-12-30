@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "bf07cd7b-c7ca-4969-b209-55c626bbef15",
+		"name": "Django_Messaging_App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19196006",
+		"_collection_link": "https://grey-robot-798902.postman.co/workspace/auth-api~75810ce1-d0bc-44e5-86b5-59d15df02147/collection/19196006-bf07cd7b-c7ca-4969-b209-55c626bbef15?action=share&source=collection_link&creator=19196006"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mikelesnr",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "mikelesnr2331#",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/token/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"token",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mikelesnr",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "mikelesnr2331#",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 30 Dec 2024 14:33:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "582"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNTY1NTYyNSwiaWF0IjoxNzM1NTY5MjI1LCJqdGkiOiJlY2E5NjIwN2E0N2Y0YmFkODFiNTkyNjZlOTRmNzY1NSIsInVzZXJfaWQiOiJiNGQyZTJlNS04Mzc0LTRjYjUtODBkMy0yYWIzMTJjNWVhNDEifQ.0KnZgcIKFkBBbDqe2mTOlNZz_GJ6tXgEdZh8qsYe4LU\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM1NTcyODI1LCJpYXQiOjE3MzU1NjkyMjUsImp0aSI6IjliYmI3ZmM3OGI2MTRjZWY5NzdlMTYzMGJjZDg3ZmFiIiwidXNlcl9pZCI6ImI0ZDJlMmU1LTgzNzQtNGNiNS04MGQzLTJhYjMxMmM1ZWE0MSJ9.Nf7qtH2Hn7PPxWb1QIL4w6JCYfZ-ao5Cf4DU3OEO7MM\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Refresh_Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFTOKEN",
+						"value": "OXMZ4xAsGzpyfyJ9JwhKMX60szQSViw9Uk0ztpumXCKl9khUqV3oJxDIOFTro5Dj",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczNTY1NTYyNSwiaWF0IjoxNzM1NTY5MjI1LCJqdGkiOiJlY2E5NjIwN2E0N2Y0YmFkODFiNTkyNjZlOTRmNzY1NSIsInVzZXJfaWQiOiJiNGQyZTJlNS04Mzc0LTRjYjUtODBkMy0yYWIzMTJjNWVhNDEifQ.0KnZgcIKFkBBbDqe2mTOlNZz_GJ6tXgEdZh8qsYe4LU\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/token/refresh/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conversation_List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFTOKEN",
+						"value": " OXMZ4xAsGzpyfyJ9JwhKMX60szQSViw9Uk0ztpumXCKl9khUqV3oJxDIOFTro5Dj",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/conversations/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"conversations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conversation_Single",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFTOKEN",
+						"value": " OXMZ4xAsGzpyfyJ9JwhKMX60szQSViw9Uk0ztpumXCKl9khUqV3oJxDIOFTro5Dj",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/conversations/1725b330-8911-4025-a8ab-fbd7816bb7de",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"conversations",
+						"1725b330-8911-4025-a8ab-fbd7816bb7de"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Messages_List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFTOKEN",
+						"value": " OXMZ4xAsGzpyfyJ9JwhKMX60szQSViw9Uk0ztpumXCKl9khUqV3oJxDIOFTro5Dj",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/conversations/1725b330-8911-4025-a8ab-fbd7816bb7de/messages",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"conversations",
+						"1725b330-8911-4025-a8ab-fbd7816bb7de",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Messages_Single",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFTOKEN",
+						"value": " OXMZ4xAsGzpyfyJ9JwhKMX60szQSViw9Uk0ztpumXCKl9khUqV3oJxDIOFTro5Dj",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/conversations/1725b330-8911-4025-a8ab-fbd7816bb7de/messages/23d13508-9485-4c72-8035-13d217827866",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"conversations",
+						"1725b330-8911-4025-a8ab-fbd7816bb7de",
+						"messages",
+						"23d13508-9485-4c72-8035-13d217827866"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Conversation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFTOKEN",
+						"value": " OXMZ4xAsGzpyfyJ9JwhKMX60szQSViw9Uk0ztpumXCKl9khUqV3oJxDIOFTro5Dj",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"participants\": [\n    \"9a90654a-7bce-48ce-8d2c-3e06af921a4e\",\n    \"b4d2e2e5-8374-4cb5-80d3-2ab312c5ea41\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/conversations/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"conversations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send_Message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFTOKEN",
+						"value": " OXMZ4xAsGzpyfyJ9JwhKMX60szQSViw9Uk0ztpumXCKl9khUqV3oJxDIOFTro5Dj",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"conversation\": \"bcdf70d0-d3fb-4456-97ee-1d2d94a6ae2f\",\n  \"sender\": \"b4d2e2e5-8374-4cb5-80d3-2ab312c5ea41\",\n  \"message_body\": \"Hi! I am Michael. It is very nice to you Mr\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/conversations/bcdf70d0-d3fb-4456-97ee-1d2d94a6ae2f/messages/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"conversations",
+						"bcdf70d0-d3fb-4456-97ee-1d2d94a6ae2f",
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM1NTczMTY5LCJpYXQiOjE3MzU1NjkyMjUsImp0aSI6Ijk2YzgwY2M3NjAwNzQyN2RhOGVlMTllZDk2Y2M3MjI0IiwidXNlcl9pZCI6ImI0ZDJlMmU1LTgzNzQtNGNiNS04MGQzLTJhYjMxMmM1ZWE0MSJ9.CHdID6mYG6GYwEMkmm8NMUBnTWmCmTDkzr0c2oKSHSk",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
