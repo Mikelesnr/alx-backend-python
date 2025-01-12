@@ -1,0 +1,9 @@
+<h1>Message History</h1>
+<p>Original Message: {{ message.content }}</p>
+<p>Edited: {{ message.edited }}</p>
+<h2>History</h2>
+<ul>
+    {% for entry in history %}
+    <li>{{ entry.timestamp }}: {{ entry.old_content }}</li>
+    {% endfor %}
+</ul>

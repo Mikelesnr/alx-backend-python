@@ -1,0 +1,8 @@
+<li>
+    <p>{{ message.sender }}: {{ message.content }}</p>
+    <ul>
+        {% for reply in message.replies.all %}
+        {% include 'chat/message.html' with message=reply %}
+        {% endfor %}
+    </ul>
+</li>

@@ -9,6 +9,14 @@ class Message(models.Model):
     edited = models.BooleanField(default=False)
     edited_at = models.DateTimeField(null=True, blank=True)
     edited_by = models.ForeignKey(User, related_name='edited_messages', null=True, blank=True, on_delete=models.SET_NULL)
+    parent_message = models.ForeignKey('self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE)
+
+    def get_all_replies(self):
+        replies = []
+        for reply in self.replies.all():
+            replies.append(reply)
+            replies.extend(reply.get_all_replies())
+        return replies
     
 class MessageHistory(models.Model):
     message = models.ForeignKey(Message, related_name='history', on_delete=models.CASCADE)
