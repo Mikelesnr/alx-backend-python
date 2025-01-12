@@ -16,11 +16,12 @@ def delete_user(request):
 
 @login_required
 def create_message(request):
+    sender=request.user
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
             message = form.save(commit=False)
-            message.sender = request.user
+            message.sender = sender
             message.save()
             return redirect('conversation_view', conversation_id=message.conversation_id)
     else:
