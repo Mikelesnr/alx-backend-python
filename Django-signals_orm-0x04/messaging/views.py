@@ -1,3 +1,4 @@
+from django.views.decorators.cache import cache_page
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -32,3 +33,8 @@ def create_message(request):
 def inbox_view(request):
     unread_messages = Message.unread.for_user(request.user)
     return render(request, 'messaging/inbox.html', {'unread_messages': unread_messages})
+
+@cache_page(60)
+def conversation_view(request, conversation_id):
+    messages = Message.objects.filter(conversation_id=conversation_id).select_related('sender', 'receiver').prefetch_related('replies')
+    return render(request, 'chat/conversation.html', {'messages': messages})

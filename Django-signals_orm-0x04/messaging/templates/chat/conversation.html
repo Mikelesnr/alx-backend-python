@@ -1,6 +1,6 @@
 <h1>Conversation</h1>
 <ul>
     {% for message in messages %}
-    {% include 'chat/message.html' with message=message %}
+    <li>{{ message.sender }}: {{ message.content }} ({{ message.timestamp }})</li>
     {% endfor %}
 </ul>
