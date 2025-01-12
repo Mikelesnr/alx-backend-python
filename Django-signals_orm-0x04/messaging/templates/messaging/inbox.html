@@ -1,0 +1,6 @@
+<h1>Inbox</h1>
+<ul>
+    {% for message in unread_messages %}
+    <li>{{ message.sender }}: {{ message.content }} ({{ message.timestamp }})</li>
+    {% endfor %}
+</ul>

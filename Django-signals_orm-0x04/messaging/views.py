@@ -27,3 +27,8 @@ def create_message(request):
     else:
         form = MessageForm()
     return render(request, 'messaging/create_message.html', {'form': form})
+
+@login_required
+def inbox_view(request):
+    unread_messages = Message.unread.for_user(request.user)
+    return render(request, 'messaging/inbox.html', {'unread_messages': unread_messages})
