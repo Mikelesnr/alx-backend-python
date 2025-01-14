@@ -62,3 +62,15 @@ class OffensiveLanguageMiddleware(MiddlewareMixin):
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+    
+class RolePermissionMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        user = request.user
+        if not user.is_authenticated or not (user.is_staff or user.is_superuser):
+            return HttpResponseForbidden("You do not have permission to perform this action.")
+        
+        response = self.get_response(request)
+        return response
