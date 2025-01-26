@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Ensure kubectl is installed
+if ! command_exists kubectl; then
+    echo "kubectl is not installed. Please install kubectl and try again."
+    exit 1
+fi
+
+# Ensure wrk is installed
+if ! command_exists wrk; then
+    echo "wrk is not installed. Please install wrk and try again."
+    exit 1
+fi
+
+# Scale the Django app deployment to 3 replicas
+echo "Scaling the Django app deployment to 3 replicas..."
+kubectl scale deployment django-app --replicas=3
+
+# Verify that multiple pods are running
+echo "Verifying that multiple pods are running..."
+kubectl get pods
+
+# Perform load testing using wrk
+echo "Performing load testing using wrk..."
+wrk -t12 -c400 -d30s http://localhost:8000
+
+# Monitor resource usage
+echo "Monitoring resource usage..."
+kubectl top pods
