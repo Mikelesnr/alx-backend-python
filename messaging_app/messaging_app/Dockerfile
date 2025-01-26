@@ -6,7 +6,9 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY . /app
+
+ENV DJANGO_SETTINGS_MODULE=messaging_app.settings
 
 #-p
 EXPOSE 8000
