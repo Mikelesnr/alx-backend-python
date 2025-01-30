@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: messaging-app
+  name: messaging-app-blue
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: messaging-app
+      app: messaging-app-blue
   template:
     metadata:
       labels:
-        app: messaging-app
+        app: messaging-app-blue
     spec:
       containers:
       - name: messaging-app
-        image: mikelesnr/messaging-app:latest
-        imagePullPolicy: Always
+        image: mikelesnr/messaging-app:2.0  # Updated to version 2.0
         ports:
         - containerPort: 8000
       imagePullSecrets:
