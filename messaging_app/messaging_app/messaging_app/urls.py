@@ -14,11 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# messaging_app/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from chats.views import home  # Import the home view
 from chats.auth import urlpatterns as auth_urls
 
 schema_view = get_schema_view(
@@ -35,6 +37,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path('', home, name='home'),  # Add this line for the homepage
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/', include('chats.urls')),

@@ -1,14 +1,10 @@
 #!/bin/bash
 
-# Function to check if a command exists
-command_exists() {
-    command -v "$1" >/dev/null 2>&1
-}
-
 # Ensure Minikube is installed
-if ! command_exists minikube; then
-    echo "Minikube is not installed. Please install Minikube and try again."
-    exit 1
+if ! command -v minikube &> /dev/null
+then
+    echo "Minikube could not be found. Please install Minikube first."
+    exit
 fi
 
 # Start Minikube
@@ -20,7 +16,7 @@ echo "Verifying that the cluster is running..."
 kubectl cluster-info
 
 # Retrieve the available pods
-echo "Retrieving the available pods..."
+echo "Retrieving available pods..."
 kubectl get pods --all-namespaces
 
-echo "Kubernetes cluster setup and verification complete."
+echo "Kubernetes cluster setup and verification complete!"

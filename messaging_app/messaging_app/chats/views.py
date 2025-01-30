@@ -6,6 +6,7 @@ from .models import Conversation, Message, CustomUser
 from .serializers import ConversationSerializer, MessageSerializer
 from .permissions import IsParticipant, IsSender
 from .filters import MessageFilter
+from django.shortcuts import 
 
 class ConversationViewSet(viewsets.ModelViewSet):
     queryset = Conversation.objects.all()
@@ -54,3 +55,6 @@ class MessageViewSet(viewsets.ModelViewSet):
         
         serializer = self.get_serializer(message)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+def home(request):
+    return render(request, 'home.html')
