@@ -14,8 +14,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Activate Python environment and install dependencies
-                    sh 'pip install -r messaging_app/requirements.txt'
+                    // Install dependencies using pip3
+                    sh 'pip3 install -r messaging_app/requirements.txt'
                 }
             }
         }
