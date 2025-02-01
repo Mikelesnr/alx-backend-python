@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: "${env.DOCKER_CREDENTIALS}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                        sh 'echo Michael2331# | docker login -u mikelesnr --password-stdin'
+                        sh 'echo password(get from .env) | docker login -u user(getfrom .env) --password-stdin'
                         sh 'docker push ${DOCKER_IMAGE}'
                     }
                 }
